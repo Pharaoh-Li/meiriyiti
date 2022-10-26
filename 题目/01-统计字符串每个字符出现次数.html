@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  const str = "aaasdssasadasdasdsaaa";
+  //for循环
+  function fun1(str) {
+    const obj = {};
+    for (var i = 0; i < str.length; i++) {
+      const temp = str[i];
+      if (obj[temp]) {
+        obj[temp]++;
+      } else {
+        obj[temp] = 1;
+      }
+    }
+    return obj;
+  }
+  console.log(fun1(str));
+  //reduce
+  function fun2(str) {
+    return str.split('').reduce((a, b) => {
+      if (a[b]) {
+        a[b] ++
+      } else {
+        a[b] = 1
+      }
+      return a
+    }, {})
+  }
+  console.log(fun2(str))
+  //一行代码实现
+  const fun3 = (str) => [...str].reduce((a, b) => (a[b] ++ || (a[b] = 1), a), {})
+  console.log(fun3(str))
+</script>
